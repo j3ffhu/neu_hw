@@ -1,31 +1,31 @@
-INSERT INTO `mydb`.`hashtag`
+INSERT INTO mydb.hashtag
 ( 
-`tag`)
+tag)
 VALUES
 ( 
 '#PEACE');
 
-INSERT INTO `mydb`.`hashtag`
+INSERT INTO mydb.hashtag
 ( 
-`tag`)
+tag)
 VALUES
 ( 
 '#LikeAHusky');
 
-INSERT INTO `mydb`.`hashtag`
+INSERT INTO mydb.hashtag
 ( 
-`tag`)
+tag)
 VALUES
 ( 
 '#Northeastern');
 
 
 
-INSERT INTO `mydb`.`tweet`
+INSERT INTO mydb.tweet
 ( 
-`user_id`,
-`content`,
-`created`)
+user_id,
+content,
+created)
 VALUES
 ( 
 1,
@@ -33,11 +33,11 @@ VALUES
 now());
 
 
-INSERT INTO `mydb`.`tweet`
+INSERT INTO mydb.tweet
 ( 
-`user_id`,
-`content`,
-`created`)
+user_id,
+content,
+created)
 VALUES
 ( 
 1,
@@ -45,22 +45,22 @@ VALUES
 now());
 
 
-INSERT INTO `mydb`.`tweet`
+INSERT INTO mydb.tweet
 ( 
-`user_id`,
-`content`,
-`created`)
+user_id,
+content,
+created)
 VALUES
 ( 
 11,
 '125 years of #Northeastern.',
 now());
 
-INSERT INTO `mydb`.`reply`
+INSERT INTO mydb.reply
 (
-`tweet_id`,
-`content`,
-`created`)
+tweet_id,
+content,
+created)
 VALUES
 (
 2,
@@ -69,24 +69,24 @@ now());
 
 
 
-INSERT INTO `mydb`.`hashtagtweet`
-(`hashtag_id`,
-`tweet_id`)
+INSERT INTO mydb.hashtagtweet
+(hashtag_id,
+tweet_id)
 VALUES
 (1,
  4);
  
  
- INSERT INTO `mydb`.`hashtagtweet`
-(`hashtag_id`,
-`tweet_id`)
+ INSERT INTO mydb.hashtagtweet
+(hashtag_id,
+tweet_id)
 VALUES
 (4,
  9);
  
- INSERT INTO `mydb`.`hashtagreply`
-(`hashtag_id`,
-`tweet_id`)
+ INSERT INTO mydb.hashtagreply
+(hashtag_id,
+tweet_id)
 VALUES
 (
 1,
