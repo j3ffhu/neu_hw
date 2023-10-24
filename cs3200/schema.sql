@@ -14,195 +14,195 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS mydb DEFAULT CHARACTER SET utf8 ;
+USE mydb ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`User`
+-- Table mydb.User
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`User` ;
+DROP TABLE IF EXISTS mydb.User ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`User` (
-  `user_id` INT NOT NULL AUTO_INCREMENT,
-  `login` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NULL,
-  `type` VARCHAR(45) NULL DEFAULT 'individual or orgnization',
-  `fullName` VARCHAR(45) NOT NULL,
-  `profile` VARCHAR(255) NOT NULL,
-  `hidden` TINYINT NULL DEFAULT 0,
-  `created` DATETIME NOT NULL default now(),
-  PRIMARY KEY (`user_id`))
+CREATE TABLE IF NOT EXISTS mydb.User (
+  user_id INT NOT NULL AUTO_INCREMENT,
+  login VARCHAR(45) NOT NULL,
+  password VARCHAR(45) NULL,
+  type VARCHAR(45) NULL DEFAULT 'individual or orgnization',
+  fullName VARCHAR(45) NOT NULL,
+  profile VARCHAR(255) NOT NULL,
+  hidden TINYINT NULL DEFAULT 0,
+  created DATETIME NOT NULL default now(),
+  PRIMARY KEY (user_id))
 ENGINE = InnoDB;
 
  -- -----------------------------------------------------
--- Table `mydb`.`Tweet`
+-- Table mydb.Tweet
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Tweet` ;
+DROP TABLE IF EXISTS mydb.Tweet ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Tweet` (
-  `tweet_id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NULL,
-  `content` VARCHAR(511) NULL,
-  `created` DATETIME NULL,
-  PRIMARY KEY (`tweet_id`),
-  FOREIGN KEY (`user_id`)  REFERENCES User(`user_id`)
+CREATE TABLE IF NOT EXISTS mydb.Tweet (
+  tweet_id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NULL,
+  content VARCHAR(511) NULL,
+  created DATETIME NULL,
+  PRIMARY KEY (tweet_id),
+  FOREIGN KEY (user_id)  REFERENCES User(user_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Following`
+-- Table mydb.Following
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Following` ;
+DROP TABLE IF EXISTS mydb.Following ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Following` (
-  `user_id` INT NOT NULL ,
-  `following_user_id` INT NOT NULL,
-  PRIMARY KEY (`following_user_id` , `user_id`  ),
-  FOREIGN KEY (`user_id`)
-    REFERENCES  User(`user_id`)
+CREATE TABLE IF NOT EXISTS mydb.Following (
+  user_id INT NOT NULL ,
+  following_user_id INT NOT NULL,
+  PRIMARY KEY (following_user_id , user_id  ),
+  FOREIGN KEY (user_id)
+    REFERENCES  User(user_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_idUser`
-  FOREIGN KEY (`following_user_id`) REFERENCES User(`user_id`)
+  CONSTRAINT FK_idUser
+  FOREIGN KEY (following_user_id) REFERENCES User(user_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
--- FOREIGN KEY (`idUser`)  REFERENCES User(`id`)
+-- FOREIGN KEY (idUser)  REFERENCES User(id)
 
 -- -----------------------------------------------------
--- Table `mydb`.`Follower`
+-- Table mydb.Follower
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Follower` ;
+DROP TABLE IF EXISTS mydb.Follower ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Follower` (
-  `user_id` INT NOT NULL,
-  `follower_user_id` INT NOT NULL,
-  PRIMARY KEY (`user_id`, `follower_user_id`),
-  CONSTRAINT `FK_follower`
-    FOREIGN KEY (`follower_user_id`)  REFERENCES User(`user_id`)
+CREATE TABLE IF NOT EXISTS mydb.Follower (
+  user_id INT NOT NULL,
+  follower_user_id INT NOT NULL,
+  PRIMARY KEY (user_id, follower_user_id),
+  CONSTRAINT FK_follower
+    FOREIGN KEY (follower_user_id)  REFERENCES User(user_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_id`
-    FOREIGN KEY (`user_id`)  REFERENCES User(`user_id`)
+  CONSTRAINT FK_id
+    FOREIGN KEY (user_id)  REFERENCES User(user_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Reply`
+-- Table mydb.Reply
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Reply` ;
+DROP TABLE IF EXISTS mydb.Reply ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Reply` (
-  `reply_id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NULL,
-  `tweet_id` INT NULL,
-  `content` VARCHAR(511) NULL,
-  `created` DATETIME NULL,
-  PRIMARY KEY (`reply_id`),
-  CONSTRAINT `FK_tweet`
-    FOREIGN KEY (`tweet_id`)
-    REFERENCES    tweet(`tweet_id`)
+CREATE TABLE IF NOT EXISTS mydb.Reply (
+  reply_id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NULL,
+  tweet_id INT NULL,
+  content VARCHAR(511) NULL,
+  created DATETIME NULL,
+  PRIMARY KEY (reply_id),
+  CONSTRAINT FK_tweet
+    FOREIGN KEY (tweet_id)
+    REFERENCES    tweet(tweet_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Like`
+-- Table mydb.Like
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Like` ;
+DROP TABLE IF EXISTS mydb.Like ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Like` (
-  `tweet_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`tweet_id`, `user_id`),
-  CONSTRAINT `FK_tweet_like`
-    FOREIGN KEY (`tweet_id`)
-    REFERENCES    tweet(`tweet_id`)
+CREATE TABLE IF NOT EXISTS mydb.Like (
+  tweet_id INT NOT NULL,
+  user_id INT NOT NULL,
+  PRIMARY KEY (tweet_id, user_id),
+  CONSTRAINT FK_tweet_like
+    FOREIGN KEY (tweet_id)
+    REFERENCES    tweet(tweet_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Retweet`
+-- Table mydb.Retweet
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Retweet` ;
+DROP TABLE IF EXISTS mydb.Retweet ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Retweet` (
-  `tweet_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`tweet_id`, `user_id`),
-  CONSTRAINT `FK_tweet_retweet`
-    FOREIGN KEY (`tweet_id`)
-    REFERENCES Tweet(`tweet_id`)
+CREATE TABLE IF NOT EXISTS mydb.Retweet (
+  tweet_id INT NOT NULL,
+  user_id INT NOT NULL,
+  PRIMARY KEY (tweet_id, user_id),
+  CONSTRAINT FK_tweet_retweet
+    FOREIGN KEY (tweet_id)
+    REFERENCES Tweet(tweet_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
- CONSTRAINT `FK_tweet_user`
-    FOREIGN KEY (`user_id`)
-    REFERENCES User(`user_id`)
+ CONSTRAINT FK_tweet_user
+    FOREIGN KEY (user_id)
+    REFERENCES User(user_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)  
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`hashtag`
+-- Table mydb.hashtag
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`hashtag` ;
+DROP TABLE IF EXISTS mydb.hashtag ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`hashtag` (
-  `hashtag_id` INT NOT NULL AUTO_INCREMENT,
-  `tag` VARCHAR(45) NOT NULL,
-  `created` DATETIME DEFAULT now(),
-  PRIMARY KEY (`hashtag_id`))
+CREATE TABLE IF NOT EXISTS mydb.hashtag (
+  hashtag_id INT NOT NULL AUTO_INCREMENT,
+  tag VARCHAR(45) NOT NULL,
+  created DATETIME DEFAULT now(),
+  PRIMARY KEY (hashtag_id))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`hashtagTweet`
+-- Table mydb.hashtagTweet
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`hashtagTweet` ;
+DROP TABLE IF EXISTS mydb.hashtagTweet ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`hashtagTweet` (
-  `hashtag_id` INT NOT NULL,
-  `tweet_id` INT NOT NULL,
-  PRIMARY KEY (`hashtag_id`, `tweet_id`),
-  CONSTRAINT `FK_hashtag`
-    FOREIGN KEY (`hashtag_id`)
-    REFERENCES hashtag(`hashtag_id`)
+CREATE TABLE IF NOT EXISTS mydb.hashtagTweet (
+  hashtag_id INT NOT NULL,
+  tweet_id INT NOT NULL,
+  PRIMARY KEY (hashtag_id, tweet_id),
+  CONSTRAINT FK_hashtag
+    FOREIGN KEY (hashtag_id)
+    REFERENCES hashtag(hashtag_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_tweet_id`
-    FOREIGN KEY (`tweet_id`)
-    REFERENCES Tweet(`tweet_id`)
+  CONSTRAINT FK_tweet_id
+    FOREIGN KEY (tweet_id)
+    REFERENCES Tweet(tweet_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`hashtagReply`
+-- Table mydb.hashtagReply
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`hashtagReply` ;
+DROP TABLE IF EXISTS mydb.hashtagReply ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`hashtagReply` (
-  `hashtag_id` INT NOT NULL,
-  `reply_id` INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`hashtag_id`, `reply_id`),
-  CONSTRAINT `FK_hashtag_c`
-    FOREIGN KEY (`hashtag_id`)
-    REFERENCES `mydb`.`hashtag` (`hashtag_id`)
+CREATE TABLE IF NOT EXISTS mydb.hashtagReply (
+  hashtag_id INT NOT NULL,
+  reply_id INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (hashtag_id, reply_id),
+  CONSTRAINT FK_hashtag_c
+    FOREIGN KEY (hashtag_id)
+    REFERENCES mydb.hashtag (hashtag_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_reply`
-    FOREIGN KEY (`reply_id`)
-    REFERENCES Reply(`reply_id`)
+  CONSTRAINT FK_reply
+    FOREIGN KEY (reply_id)
+    REFERENCES Reply(reply_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
