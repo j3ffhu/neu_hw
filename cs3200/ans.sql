@@ -12,12 +12,12 @@ and content like '%#NEU%'
 order by created desc;
 
 -- c
-select hashtag.hashtag_id,    hashtag.tag, top_hashtag.total
-FROM  hashtag
-JOIN
-     ( select  hashtag_id, count(tweet_id)  total   from hashtagtweet
-     group by hashtag_id order by  count(tweet_id) desc ) as top_hashtag
-on      hashtag.hashtag_id = top_hashtag.hashtag_id;
+select hashtag.hashtag_id,   
+	  hashtag.tag ,
+          (  select   count(tweet_id)  total   from hashtagtweet
+           WHERE hashtagtweet.hashtag_id = hashtag.hashtag_id
+     group by hashtag_id  ) as top_hashtag
+FROM  hashtag ;
 
 -- d
    select count(1) as cnt from (
