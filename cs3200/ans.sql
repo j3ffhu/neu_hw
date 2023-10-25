@@ -17,7 +17,8 @@ select hashtag.hashtag_id,
           (  select   count(tweet_id)  total   from hashtagtweet
            WHERE hashtagtweet.hashtag_id = hashtag.hashtag_id
      group by hashtag_id  ) as top_hashtag
-FROM  hashtag ;
+FROM  hashtag order by 3  desc;
+
 
 -- d
    select count(1) as cnt from (
