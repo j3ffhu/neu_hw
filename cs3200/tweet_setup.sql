@@ -86,7 +86,7 @@ VALUES
  
  INSERT INTO mydb.hashtagreply
 (hashtag_id,
-tweet_id)
+reply_id)
 VALUES
 (
 1,
