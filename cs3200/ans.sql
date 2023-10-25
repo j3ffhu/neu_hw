@@ -1,6 +1,6 @@
 
 -- a) Which user has the most followers? Output just the user_id of that user, and the number of followers.
- select user_id , count(follower_user_id) from follower 
+ select user_id , count(follower_user_id) as follower_count  from follower 
  group by user_id  order by count(user_id)  desc limit 1 ;
 
 
