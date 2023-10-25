@@ -60,6 +60,9 @@ VALUES
 now());
 
 
+
+-- run this dozen time
+-- try differnt id
 INSERT INTO `mydb`.`tweet`
 ( 
 `user_id`,
@@ -72,7 +75,7 @@ VALUES
 now());
 
 
-
+-- your db may have differnt pls check and replace 1 
 SELECT * FROM mydb.hashtag;
 INSERT INTO hashtagtweet (hashtag_id, tweet_id)
 select 1,  tweet_id from tweet
