@@ -1,5 +1,10 @@
 
--- For one user, list the five most recent tweets by that user, from newest to oldest. Include only tweets
+-- a) Which user has the most followers? Output just the user_id of that user, and the number of followers.
+ select user_id , count(follower_user_id) from follower 
+ group by user_id  order by count(user_id)  desc limit 1 ;
+
+
+-- b For one user, list the five most recent tweets by that user, from newest to oldest. Include only tweets
 -- containing the hashtag “#NEU”
 select * from tweet
 where user_id = 1
