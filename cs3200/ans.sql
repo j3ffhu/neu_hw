@@ -1,4 +1,11 @@
 
+-- For one user, list the five most recent tweets by that user, from newest to oldest. Include only tweets
+-- containing the hashtag “#NEU”
+select * from tweet
+where user_id = 1
+and content like '%#NEU%'
+order by created desc;
+
 -- c
 select hashtag.hashtag_id,    hashtag.tag, top_hashtag.total
 FROM  hashtag
