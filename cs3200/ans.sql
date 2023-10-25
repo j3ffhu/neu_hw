@@ -1,4 +1,8 @@
 
+-- c
+   select count(1) as cnt from (
+              select tweet_id  from hashtagtweet group by tweet_id  having count(hashtag_id)  = 1
+      )   as   single_hashtag_tweet  ;
 
 
 -- e: What is the most liked tweet?
