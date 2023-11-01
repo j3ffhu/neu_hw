@@ -1,4 +1,6 @@
-
+// find all ligible cousins, 
+// choose max t - longest
+// adjust S, repeat til hit T
 Function CousinSchedule(C[], S, T]
   Sort C[si, ti] by si asc 
   Let R[] empty - return 
