@@ -3,7 +3,7 @@ Function CousinSchedule(C[], S, T]
   Sort C[si, ti] by si asc 
   Let R[] empty - return 
   Let W[] empty - work 
- While  S < T )
+ While ( S < T )
      Fill W[] with Cousin [si, ti], which  si < = S
      Choose Cousin with max ti: c
      Put c in R
