@@ -1,0 +1,18 @@
+
+Function CousinSchedule(C[], S, T]
+  Sort C[si, ti] by si asc 
+  Let R[] empty - return 
+  Let W[] empty - work 
+ While (T > S )
+     Fill W[] with Cousin [si, ti], which  si < = S
+     Choose Cousin with max ti: c
+     Put c in R
+     Set  S <- c.t 
+     Empty W
+     
+Return R
+
+Sort : ologn
+Loop : n^2
+
+Final - n^2
