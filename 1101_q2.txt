@@ -66,6 +66,20 @@ Function PARTIALPUMPKIN(C):
            // look for ASC next
 	   order = 'ASC'
 	   start = i
-  
+
+      // adjust edge case where two sequence overlapping
+      // edge case
+	// 4 5 10 9  6 6  3 2 1
+	// 1 2  3  5  4 4  3 2 1
+
+	// need adjust one more round
+	// 4 5 10 9  6 6  3 2 1
+	// 1 2  6  5  4 4  3 2 1
+	       ^
+      for (i = 2 to p len -1 ) 
+           // if candy more than both neighbor, get max + 1
+           if P(i) >   P(i-1 )  and P(i) >   P(i +  )
+                P(i) = Max(P(i-1 ), P(i+1 )) + 1
+
        return P       
             
