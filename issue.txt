@@ -26,6 +26,12 @@ Foreign key constraint failed on the field: `Link_linkTypeName_fkey (index)`
 // clarify question
 ///  is it permanent deletion from database, or soft delete by mark status as ? , status does not have entry to refect soft delete
 
+soft delete update fields:
+
+  dateDeleted            DateTime?
+  userDeleted            User?           @relation(fields: [userDeletedId], references: [userId], name: "materialDeleter")
+  userDeletedId          Int?
+
 enum Material_Status {
   RECEIVED
   ORDERED
