@@ -16,7 +16,7 @@ npx prisma db push
 
 npx prisma db seed
 
-/// error
+/// error: src\backend\src\utils\links.utils.ts:22:23
 Foreign key constraint failed on the field: `Link_linkTypeName_fkey (index)`
   code: 'P2003',
   clientVersion: '4.16.2',
