@@ -1,0 +1,23 @@
+
+
+checkout
+
+yarn install
+
+yarn prisma:generate
+ yarn add --dev prisma@latest                         │
+ yarn add @prisma/client@latest
+
+
+src\backend>
+
+// create schema
+npx prisma db push
+
+npx prisma db seed
+
+/// error
+Foreign key constraint failed on the field: `Link_linkTypeName_fkey (index)`
+  code: 'P2003',
+  clientVersion: '4.16.2',
+  meta: { field_name: 'Link_linkTypeName_fkey (index)' }
