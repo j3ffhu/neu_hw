@@ -16,12 +16,15 @@ npx prisma db push
 
 npx prisma db seed
 
+
+
 /// error: src\backend\src\utils\links.utils.ts:22:23
 Foreign key constraint failed on the field: `Link_linkTypeName_fkey (index)`
   code: 'P2003',
   clientVersion: '4.16.2',
   meta: { field_name: 'Link_linkTypeName_fkey (index)' }
 
+ YOU CAN POST AS COMMENT and tag lead: https://github.com/Northeastern-Electric-Racing/FinishLine/issues/1527
 
 // clarify question
 ///  is it permanent deletion from database, or soft delete by mark status as ? , status does not have entry to refect soft delete
