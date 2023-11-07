@@ -183,6 +183,8 @@ order by 3 asc
 
 
 
+ 
+ 
 -- 12. How much does each user owe the library. Include users owing nothing
 -- Factor in the 10 cents per day fine for late returns and how much they have already paid the library
 -- HINTS:
@@ -190,10 +192,18 @@ order by 3 asc
 --     The IF function, used in a SELECT clause, might also be helpful.  IF(condition, result_if_true, result_if_false)
 --     IF functions can be used inside aggregation functions!
 
-
-
-
+ 
+           
+    select    u.user_id,  sum(  IF(brw.return_dt > brw.due_dt, DATEDIFF(  brw.return_dt, brw.borrow_dt  )*0.1,  0     ) ) fine         
+    from  user  u left   join borrow brw
+    on  u.user_id = brw.user_id 
+    group by u.user_id 
+    order by 2 desc ;
+       
+ 
 
 -- 13. (4 points) Which books will change your life?
 -- Answer: All books.
 -- Select all books.
+
+select * from book;
