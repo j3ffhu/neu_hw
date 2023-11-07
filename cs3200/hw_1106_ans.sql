@@ -166,7 +166,22 @@ order by 3 asc
 -- (Count each time the book was checked out even if the same book was checked out
 -- by John more than once.)
 
- 
+     select    b.genre_id, count(brw.book_id) num_books     
+    from  user  u     join borrow brw
+    on  u.user_id = brw.user_id 
+    join book b
+    on brw .book_id = b.book_id
+    where user_name = 'John'
+     and   b.genre_id in (
+	 select g2.genre_id  
+		from  borrow brw2 , book b2, genre  g2
+		where brw2.book_id = b2.book_id
+		 and b2.genre_id = g2.genre_id
+		 group by  g2.genre_id
+		 having count(distinct brw2.book_id) > 1
+       ) 
+      group by     b.genre_id
+      order by 2 desc ;
 
 
 
