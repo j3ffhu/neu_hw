@@ -81,30 +81,57 @@ where borrow.user_id is null ;
 -- Include users that never returned a book late or never even borrowed a book
 -- Sort by most number of late returns to least number of late returns (regardless of HOW late the returns were.)
 
+    select u.user_name ,
+         sum( CASE
+		    	WHEN brw.due_dt < brw.return_dt THEN  1
+			    ELSE  0
+		      END ) num_late_return 
+    from  user u left join borrow brw 
+    on u.user_id = brw.user_id
+    group by u.user_id
+    order by 2 desc;
 
-
-
+ 
 
 -- 6. How many books of each genre where published after 1950?
 -- Include genres that are not represented by any book in our catalog
 -- as well as genres for which there are books but none published after 1950.
 -- Sort output by number of titles in each genre (most to least)
 
-
+   select g.genre_id ,  sum( CASE
+		    	WHEN b.book_id is null THEN  0
+			    ELSE  1
+		      END ) num_books
+    from  genre g left join book b
+    on  b.genre_id = g.genre_id 
+    where b.year >= 1950 or b.genre_id is null
+    group by g.genre_id
+    order by 2 desc;
+ 
 
 
 
 -- 7. For each genre, compute a) the number of books borrowed and b) the average
--- number of days borrowed.
 -- Includes books never borrowed and genres with no books
 -- and in these cases, show zeros instead of null values.
 -- Round the averages to one decimal point
 -- Sort output in descending order by average
 -- Helpful functions: ROUND, IFNULL, DATEDIFF
 
-
-
-
+ 
+select  g.genre_id , count(  distinct b.book_id ) num_books ,
+          case
+           WHEN count(  distinct b.book_id )   = 0 then 0 
+           WHEN count(  distinct brw.borrow_dt )   = 0 then 0 
+           else   ROUND (sum(  DATEDIFF(  brw.return_dt, brw.borrow_dt  ) )/ count(    brw.book_id )  )
+           end  average_borrowed_days
+    from  genre g  left join book b
+    on  b.genre_id = g.genre_id 
+      left    join borrow brw
+    on b.book_id = brw.book_id  
+    group by g.genre_id
+    order by 3 desc;
+  
 
 -- 8. List all pairs of books published within 10 years of each other
 -- Don't include the book with itself
@@ -112,8 +139,10 @@ where borrow.user_id is null ;
 -- Output the two titles, and the years they were published, the number of years apart they were published
 -- Order pairs from those published closest together to farthest
 
-
-
+select bfirst.title, b.title, b.year - bfirst.year  as apart  
+from  book bfirst , book b
+where bfirst.year <  b.year -10 
+order by 3 asc
 
 -- 9. Assuming books are returned completely read,
 -- Rank the users from fastest to slowest readers (pages per day)
