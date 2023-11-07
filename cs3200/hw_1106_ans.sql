@@ -144,11 +144,20 @@ from  book bfirst , book b
 where bfirst.year <  b.year -10 
 order by 3 asc
 
+
+
 -- 9. Assuming books are returned completely read,
 -- Rank the users from fastest to slowest readers (pages per day)
 -- include users that borrowed no books (report reading rate as 0.0)
 
-
+   select u.user_id,  IFNULL(  ROUND(sum(b.pages) / sum( DATEDIFF(  brw.return_dt, brw.borrow_dt  ) ), 1)   , 0.0 )   page_per_day   
+    from  user u left join borrow  brw
+    on  u.user_id = brw.user_id 
+    left join book b
+    on brw.book_id  = b.book_id 
+    group by u.user_id
+    order by 2 desc;
+ 
 
 
 -- 10. How many books of each genre were checked out by John?
@@ -157,6 +166,7 @@ order by 3 asc
 -- (Count each time the book was checked out even if the same book was checked out
 -- by John more than once.)
 
+ 
 
 
 
@@ -165,8 +175,11 @@ order by 3 asc
 -- Output two averages in one row: one average that includes users that
 -- borrowed no books, and one average that excludes users that borrowed no books
 
-
-
+ 
+    
+       select ROUND ( count(  brw.book_id)  /    count(  distinct u.user_id  ) , 1)  include_avg,    ROUND (  count(  brw.book_id)  /  count(  distinct brw.user_id  ), 1)     exclude_avg
+    from  user u left join borrow  brw
+    on  u.user_id = brw.user_id ;
 
 
 
