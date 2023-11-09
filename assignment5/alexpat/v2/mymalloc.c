@@ -33,7 +33,8 @@ block_t* findFirstFit(size_t s, block_t* block) {
 // first even block
 if (block == NULL) {
     // Allocate memory for new block
-    block = malloc(sizeof(block_t) + s);
+     // what about block extra fields?
+    block = malloc( s);
     
     block->size = s;
     block->free = false;
