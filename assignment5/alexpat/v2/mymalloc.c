@@ -69,7 +69,7 @@ void*  mymalloc(size_t s) {
 
   // shiftt block_t meta
   // |block|---actual memory---|block|------actual memory-----|block|--actual memory--|
-  return p + sizeof(block_t ) ;
+  return p   ;
 }
 
 //allocates the amount of memory specified by s * nmemb
@@ -80,7 +80,7 @@ void *mycalloc(size_t nmemb, size_t s) {
 
   debug_printf("malloc %zu bytes\n", s);
 
-  return p + sizeof(block_t ) ;
+  return p   ;
   
 }
 
