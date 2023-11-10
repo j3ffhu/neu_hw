@@ -4,9 +4,7 @@ checkout
 
 git clone https://github.com/Northeastern-Electric-Racing/FinishLine.git
 
-// root
-yarn install
-
+ 
  yarn prisma:generate
  yarn add --dev prisma@latest                         │
  yarn add @prisma/client@latest
