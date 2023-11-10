@@ -21,6 +21,8 @@ npx prisma db push
 
 npx prisma db seed
 
+under ROOT (not src, or backend)
+yarn install 
 yarn start
 
 /// error: src\backend\src\utils\links.utils.ts:22:23
