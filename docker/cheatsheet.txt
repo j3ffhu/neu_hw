@@ -1,0 +1,22 @@
+
+
+
+
+
+////////////////////// vol
+-- Create a folder c:\docker\pgdev first
+-v C:\Docker\pgdev:/var/lib/postgresql/data
+
+  
+ docker volume create hello
+ docker run -d -v hello:/world busybox ls /world
+
+
+ 
+ docker inspect hello
+
+docker inspect <container_id> 
+
+docker inspect 8d2ed397dd5f
+
+docker volume create  --driver local   --opt type=none   --opt device=D:\neu\dockervol  --opt o=bind  myvolume
