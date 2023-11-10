@@ -26,3 +26,5 @@ yarn install
 yarn start
 
 
+D:\neu\Fastline5\FinishLine> yarn backend 
+
