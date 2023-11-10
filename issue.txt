@@ -16,8 +16,9 @@ src\backend> .env
 
 // create schema
 npx prisma db push
-
 npx prisma db seed
+
+// reset db
 
 under ROOT (not src, or backend)
 yarn install 
