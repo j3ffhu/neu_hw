@@ -2,6 +2,9 @@
 
 checkout
 
+git clone https://github.com/Northeastern-Electric-Racing/FinishLine.git
+
+
 yarn install
 
 yarn prisma:generate
