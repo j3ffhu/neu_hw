@@ -19,6 +19,7 @@ npx prisma db push
 npx prisma db seed
 
 // reset db
+    "prisma:reset": "yarn workspace shared build; cd src/backend; npx prisma migrate reset",
 
 under ROOT (not src, or backend)
 yarn install 
