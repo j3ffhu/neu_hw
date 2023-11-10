@@ -8,6 +8,7 @@ docker run --name fastlane -p 5432:5432 -e POSTGRES_USER=postres -e POSTGRES_PAS
 
 
 ////////////////////// vol
+
 -- Create a folder c:\docker\pgdev first
 -v C:\Docker\pgdev:/var/lib/postgresql/data
 
