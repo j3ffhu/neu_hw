@@ -1,0 +1,9 @@
+run at local
+
+
+docker run --name fastlane -p 5432:5432 -e POSTGRES_USER=postres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=fastlane -d postgres
+
+
+  client tool
+https://www.pgadmin.org/download/
+ 
