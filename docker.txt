@@ -7,3 +7,10 @@ docker run --name fastlane -p 5432:5432 -e POSTGRES_USER=postres -e POSTGRES_PAS
   client tool
 https://www.pgadmin.org/download/
  
+PS D:\neu\Fastline5> docker run --name fastlane -p 5432:5432 -e POSTGRES_USER=postres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=fastlane -d postgres
+8d2ed397dd5f6bd4aa0490f945f04a87c4790a716542e734fc9bdd87604672c9
+ 
+PS D:\neu\Fastline5> docker ps
+CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS                    NAMES
+8d2ed397dd5f   postgres   "docker-entrypoint.s…"   7 seconds ago   Up 7 seconds   0.0.0.0:5432->5432/tcp   fastlane
+PS D:\neu\Fastline5> 
