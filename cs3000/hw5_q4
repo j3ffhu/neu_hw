@@ -6,7 +6,7 @@ return min from path
  function Dijkstra(Graph, source, target)
         // Initialize  to all nodes as 0
         // except source to max 
-        bandwith = map 0 to all nodes
+        bandwith <- map 0 to all nodes
  
         // Initialize an empty set of visited nodes 
         visited = empty set
@@ -18,7 +18,7 @@ return min from path
         for each edge e(s, n)
              min <- bandwith[s], w(e)
              if  bandwith[n] < min  
-                    bandwith[n] = min
+                    bandwith[n] <- min
 
    // Loop until all nodes have been visited.
    while target not visited :
