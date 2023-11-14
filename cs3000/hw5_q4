@@ -6,7 +6,7 @@ return min from path
  function Dijkstra(Graph, source, target)
         // Initialize  to all nodes as 0: map
         // except source to max 
-        bandwith <- node bandwith map
+        banwidth <- node banwidth map
  
         // Initialize an empty set of visited nodes 
         visited <- empty set
@@ -23,13 +23,13 @@ return min from path
        EdgeRelaxation(Graph, v)
        add v to visited
     // now found path from visited: source, v1, v2 ..... target
-     result <- look up bandwith map, find the minimum value of all nodes: v1 .... target
+     result <- look up banwidth map, find the minimum value of all nodes: v1 .... target
    return  result
 
  function EdgeRelaxation(Graph, v)
         for each edge e(v, n) starting v
-             min <- bandwith[s], w(e)
-             if  bandwith[n] < min  
-                    bandwith[n] <- min
+             min <- banwidth[v], w(e)
+             if  banwidth[n] < min  
+                    banwidth[n] <- min
 
 c: modified dijstar, take from it .. 
