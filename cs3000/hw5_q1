@@ -2,7 +2,7 @@
 // You can assume the graph is represented by an adjacency list and your algorithm should
 run in O(n + |S|) time.
 
-// input G(V, S): games and constrtraits 
+// input AdjList representation of G
 Funncction Soccer(G(AdjList[] list))
     hour  <- 0  : total hour
     count <- 0  : number of games to play next hour 
