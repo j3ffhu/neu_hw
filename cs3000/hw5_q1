@@ -1,0 +1,25 @@
+// input G(V, S): games and constrtraits 
+Funncction Soccer(G(V, S) )
+    hour  <- 0  : total hour
+    count <- 0  : number of games to play next hour 
+
+    Q ← queue of all nodes v ∈ V with no incoming edge
+
+    while Q is not empty do
+        hour <- hour + 1
+        count <- Q size
+        while 0 < count do
+            remove  node v from Q head
+            count = count - 1
+            for each of outgoing s(n, m) ∈ S of node v  do
+                remove edge s from the graph G
+                if m has no other incoming edges then
+                    insert m into Q
+            remove node v from graph G 
+    return hour
+
+
+
+// optionl?
+    remove edge s from the graph G
+remove node v from graph G 
