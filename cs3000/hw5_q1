@@ -39,4 +39,7 @@ c . sample grahp: hr -> games
 3 - 3 6
 4 5
 
-total 4 hrs
+total 4 hrs 
+
+d. each node and edge is vistived once O(v+e)
+
