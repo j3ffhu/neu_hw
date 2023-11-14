@@ -23,3 +23,20 @@ Funncction Soccer(G(V, S) )
 // optionl?
     remove edge s from the graph G
 remove node v from graph G 
+
+
+a 
+Greedy - each hour: 
+1 find all games without contraits  
+2 remove constraints for each game played 
+3 repeat step 1
+
+b. abv
+
+c . sample grahp: hr -> games
+1- 1
+2 -  2 4
+3 - 3 6
+4 5
+
+total 4 hrs
