@@ -1,9 +1,20 @@
+
+// You can assume the graph is represented by an adjacency list and your algorithm should
+run in O(n + |S|) time.
+
 // input G(V, S): games and constrtraits 
-Funncction Soccer(G(V, S) )
+Funncction Soccer(G(AdjList[] list))
     hour  <- 0  : total hour
     count <- 0  : number of games to play next hour 
 
-    Q ← queue of all nodes v ∈ V with no incoming edge
+    /// build indegree - initialze 0, size of nodes
+    indegree[v] = 0
+    for l in list
+       for each edge(u,v)
+           indegree[v] <- indegree[v] + 1
+
+ 
+    Q ← queue of all nodes v ∈ V where indegree[v] = 0
 
     while Q is not empty do
         hour <- hour + 1
@@ -11,19 +22,13 @@ Funncction Soccer(G(V, S) )
         while 0 < count do
             remove  node v from Q head
             count = count - 1
-            for each of outgoing s(n, m) ∈ S of node v  do
-                remove edge s from the graph G
-                if m has no other incoming edges then
-                    insert m into Q
-            remove node v from graph G 
+            for each edge(v, u) of AdjList[v]
+                  indegree[u] <- indegree[u] + 1
+                  insert u into Q if indegree reaches 0
+
     return hour
 
-
-
-// optionl?
-    remove edge s from the graph G
-remove node v from graph G 
-
+ 
 
 a 
 Greedy - each hour: 
