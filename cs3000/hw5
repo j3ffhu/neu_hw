@@ -12,6 +12,8 @@ Repeat
 q2: 
 -- all shortest path to user, with max value -> highest rank
 
+u learnt https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm ??
+
 
 q3 -- hard
 
