@@ -15,20 +15,21 @@ return min from path
         visited.add   source 
 
         //Relaxation: relax its neightbor by
-        for each edge e(s, n)
-             min <- bandwith[s], w(e)
-             if  bandwith[n] < min  
-                    bandwith[n] <- min
+       EdgeRelaxation(Graph, source)
 
    // Loop until all nodes have been visited.
    while target not visited :
        choose v from bandwidth that is not visited, and has max value
-       relax all its edges
+       EdgeRelaxation(Graph, v)
        add v to visited
     // now found path from visited: source, v1, v2 ..... target
      result <- look up bandwith map, find the minimum value of all nodes: v1 .... target
    return  result
 
-
+ function EdgeRelaxation(Graph, v)
+        for each edge e(v, n) starting v
+             min <- bandwith[s], w(e)
+             if  bandwith[n] < min  
+                    bandwith[n] <- min
 
 c: modified dijstar, take from it .. 
