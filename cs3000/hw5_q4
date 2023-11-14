@@ -21,7 +21,7 @@ return min from path
         //Relaxation: relax its neightbor by
        EdgeRelaxation(Graph, source)
 
-   // Loop until all nodes have been visited.
+   // Loop until target hit and path found
    while target not visited :
        choose v from bandwidth that is not visited, and has max value
        EdgeRelaxation(Graph, v)
