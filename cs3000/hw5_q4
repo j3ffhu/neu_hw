@@ -7,7 +7,11 @@ return min from path
         // Initialize  to all nodes as 0: map
         // except source to max 
         banwidth <- node banwidth map
- 
+
+        // track path
+        parent: map node to parent in path
+        add to parent : source -> null 
+
         // Initialize an empty set of visited nodes 
         visited <- empty set
 
@@ -22,14 +26,15 @@ return min from path
        choose v from bandwidth that is not visited, and has max value
        EdgeRelaxation(Graph, v)
        add v to visited
-    // now found path from visited: source, v1, v2 ..... target
-     result <- look up banwidth map, find the minimum value of all nodes: v1 .... target
+    // now found path, backtrack parent, find path source,  v1 , v2.... target:
+     result <- find the minimum value of all nodes:  v1 .... target: skip source [max valude]
    return  result
 
  function EdgeRelaxation(Graph, v)
         for each edge e(v, n) starting v
              min <- banwidth[v], w(e)
              if  banwidth[n] < min  
+                    parent[n] <- s
                     banwidth[n] <- min
 
 c: modified dijstar, take from it .. 
