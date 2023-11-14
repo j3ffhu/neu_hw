@@ -9,8 +9,8 @@ Remove it from the graph.
 Repeat
 
 
-q2: BFS??
-
+q2: 
+-- all shortest path to user, with max value -> highest rank
 
 
 q3 -- hard
