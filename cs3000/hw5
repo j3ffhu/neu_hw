@@ -1,1 +1,9 @@
 
+q1 - topologiy sort
+
+https://www.interviewcake.com/concept/java/topological-sort
+
+Identify a node with no incoming edges.
+Add that node to the ordering.
+Remove it from the graph.
+Repeat
