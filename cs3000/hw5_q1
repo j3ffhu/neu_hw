@@ -14,7 +14,7 @@ Funncction Soccer(G(AdjList[] list))
            indegree[v] <- indegree[v] + 1
 
  
-    Q ← queue of all nodes v ∈ V where indegree[v] = 0
+    Q ← enqueue of all nodes v ∈ V where indegree[v] = 0
 
     while Q is not empty do
         hour <- hour + 1
