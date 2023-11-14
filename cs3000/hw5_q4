@@ -9,10 +9,10 @@ return min from path
         bandwith <- node bandwith map
  
         // Initialize an empty set of visited nodes 
-        visited = empty set
+        visited <- empty set
 
         // start with source
-        visited <- add source 
+        visited.add   source 
 
         //Relaxation: relax its neightbor by
         for each edge e(s, n)
