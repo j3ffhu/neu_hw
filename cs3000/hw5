@@ -12,11 +12,14 @@ Repeat
 q2: 
 -- all shortest path to user, with max value -> highest rank
 
+
+q3 -- hard
+
+https://youtu.be/4NQ3HnhyNfQ?t=107
+
 u learnt https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm ??
 
 https://github.com/williamfiset/algorithms#graph-theory
-
-q3 -- hard
 
 
 q4 - dijstra : choose max bottlenect every time
