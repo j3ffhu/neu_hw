@@ -7,3 +7,17 @@ Identify a node with no incoming edges.
 Add that node to the ordering.
 Remove it from the graph.
 Repeat
+
+
+q2: BFS??
+
+
+
+q3 -- hard
+
+
+q4 - dijstra : choose max bottlenect every time
+
+https://youtu.be/pVfj6mxhdMw?t=134
+
+
