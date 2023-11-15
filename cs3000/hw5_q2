@@ -5,6 +5,38 @@ a
 // https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm
 
 
+
+// call dijkstra on every node, update rank 
+Function FINDHIGHEST(G, n):
+   G←buildGraph(followersList, n)
+   rank[V] <- 0 for array of size n
+   For s in 1 to n
+     distance[], previous[] = dijkstra(G, S) 
+     For u in  previous[]  
+        if distance[u] >  rank[u]
+            rank[u] <- distance[u]  
+ 
+
+function dijkstra(G, S)
+    for each vertex V in G
+        distance[V] <- infinite
+        previous[V] <- NULL
+        If V != S, add V to  Queue Q
+    distance[S] <- 0
+	
+    while Q IS NOT EMPTY
+        U <- Extract  from Q
+        for each unvisited neighbour V of U
+             // each follow : weight 1
+            tempDistance <- distance[U] + 1
+            if tempDistance < distance[V]
+                distance[V] <- tempDistance
+                previous[V] <- U
+    return distance[], previous[]
+
+
+
+
 define each follow v1 -> v2 and directed edge e(u1, u2), weight 1,  - G(V, E)
 run Floyd–Warshall algo on all pair shortest path on G
 initial S[u] rank all 0
