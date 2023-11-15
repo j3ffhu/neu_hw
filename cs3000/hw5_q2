@@ -8,7 +8,6 @@ a
 
 // call dijkstra on every node, update rank 
 Function FINDHIGHEST(G, n):
-   G←buildGraph(followersList, n)
    rank[V] <- 0 for array of size n
    For S in 1 to n
      distance[], previous[] = dijkstra(G, S) 
