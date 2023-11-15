@@ -1,12 +1,8 @@
 
-modified dijstra: pick max weght first to construct a path
-return min from path
 
 
 
-
-
-// dijkstraModified
+// dijkstra Modified
 function BOTTLENECK(G, W, S, T)
     for each vertex V in G
         bandwidth[V] <- 0
@@ -21,6 +17,18 @@ function BOTTLENECK(G, W, S, T)
                 distance[V] <- tempBandwidth
                 previous[V] <- U
     return bandwidth[T] 
+
+
+
+///////////////////////////////////////////////
+
+
+modified dijstra: pick max weght first to construct a path
+return min from path
+
+
+
+
 
 
 
