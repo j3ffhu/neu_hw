@@ -7,7 +7,7 @@ Funncction Soccer(G(AdjList[] list))
     hour  <- 0  : total hour
     count <- 0  : number of games to play next hour 
 
-    /// build indegree - initialze 0, size of nodes
+    /// build indegree - initialze 0, size of nodes / list
     indegree[v] = 0
     for l in list
        for each edge(u,v)
@@ -23,7 +23,7 @@ Funncction Soccer(G(AdjList[] list))
             remove  node v from Q head
             count = count - 1
             for each edge(v, u) of AdjList[v]
-                  indegree[u] <- indegree[u] + 1
+                  indegree[u] <- indegree[u] - 1
                   insert u into Q if indegree reaches 0
 
     return hour
