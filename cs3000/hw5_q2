@@ -10,7 +10,7 @@ a
 Function FINDHIGHEST(G, n):
    G←buildGraph(followersList, n)
    rank[V] <- 0 for array of size n
-   For s in 1 to n
+   For S in 1 to n
      distance[], previous[] = dijkstra(G, S) 
      For u in  previous[]  
         if distance[u] >  rank[u]
