@@ -7,7 +7,7 @@ function BOTTLENECK(G, W, S, T)
     for each vertex V in G
         bandwidth[V] <- 0
         previous[V] <- NULL
-    S to  Queue Q
+    add S to  Queue Q
     bandwidth[S] <- INF
     while Q IS NOT EMPTY
         U <- Extract  from Q
