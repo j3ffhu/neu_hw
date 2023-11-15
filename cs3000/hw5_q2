@@ -8,7 +8,7 @@ a
 define each follow v1 -> v2 and directed edge e(u1, u2), weight 1,  - G(V, E)
 run Floyd–Warshall algo on all pair shortest path on G
 initial S[u] rank all 0
-for each path p(u1... ux), if length is greater than S[ux}, update its value to length
+for each shortest path p(u1... ux), if length is greater than S[x}, update its value to length
 
 b. (can you write something)
 
