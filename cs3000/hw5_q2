@@ -18,20 +18,20 @@ Function FINDHIGHEST(G, n):
 
 function dijkstra(G, S)
     for each vertex V in G
-        distance[V] <- infinite
+        rank[V] <- infinite
         previous[V] <- NULL
-        add S to  Queue Q
+    add S to  Queue Q
     distance[S] <- 0
 	
     while Q IS NOT EMPTY
         U <- Extract  from Q
         for each unvisited neighbour V of U
              // each follow : weight 1
-            tempDistance <- distance[U] + 1
+            alt <- rank[U] + 1
             if tempDistance < distance[V]
-                distance[V] <- tempDistance
+                rank[V] <- alt
                 previous[V] <- U
-    return distance[], previous[]
+    return rank[], previous[]
 
 
 
