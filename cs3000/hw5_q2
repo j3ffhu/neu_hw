@@ -8,17 +8,17 @@ a
 
 // call dijkstra on every node, update rank 
 Function FINDHIGHEST(G, n):
-   rankRet[V] <- 0 for array of size n
+   rank[V] <- 0 for array of size n
    For S in 1 to n
-     rank[], previous[] = dijkstra(G, S) 
+     distance[], previous[] = dijkstra(G, S) 
      For u in  previous[]  
-        if rank[u] >  rankRet[u]
-            rankRet[u] <- distance[u]  
+        if distance[u] >  rank[u]
+            rank[u] <- distance[u]  
  
 
 function dijkstra(G, S)
     for each vertex V in G
-        rank[V] <- infinite
+       distance[V] <- infinite
         previous[V] <- NULL
     add S to  Queue Q
     distance[S] <- 0
@@ -29,9 +29,9 @@ function dijkstra(G, S)
              // each follow : weight 1
             alt <- rank[U] + 1
             if tempDistance < distance[V]
-                rank[V] <- alt
+                distance[V] <- alt
                 previous[V] <- U
-    return rank[], previous[]
+    return distance[], previous[]
 
 
 
