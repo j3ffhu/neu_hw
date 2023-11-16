@@ -12,7 +12,7 @@ function Soccer(G)
     for each vertex V in G
         distance[V] <- INFINITY
         previous[V] <- NULL
-    S to  Queue Q
+    add S to  Queue Q
     distance[S] <- 0
     while Q IS NOT EMPTY
         U <- Extract  from Q
