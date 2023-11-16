@@ -13,7 +13,7 @@ function BOTTLENECK(G, W, S, T)
         U <- Extract  from Q
         for each unvisited neighbour V of U
             alt <-  min( W(U, V), bandwidth[U] )
-            if alt > distance[V]
+            if alt > bandwidth[V]
                 bandwidth[V] <- alt
                 previous[V] <- U
     return bandwidth[T] 
