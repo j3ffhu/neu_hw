@@ -27,8 +27,8 @@ function dijkstra(G, S)
         U <- Extract  from Q
         for each unvisited neighbour V of U
              // each follow : weight 1
-            alt <- rank[U] + 1
-            if tempDistance < distance[V]
+            alt <- distance[U] + 1
+            if alt < distance[V]
                 distance[V] <- alt
                 previous[V] <- U
     return distance[], previous[]
