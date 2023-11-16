@@ -4,26 +4,30 @@ run in O(n + |S|) time.
 
 
 
-
  ///  v1: modified dijstra
-
-
 function Soccer(G)
-    for each vertex V in G
+   for each vertex V in G
+        indegree[v] <- 0
         distance[V] <- INFINITY
         previous[V] <- NULL
-    add S to  Queue Q
-    distance[S] <- 0
+
+    for each edge(u,v)
+        indegree[v] <- indegree[v] + 1
+
+    for each node v 
+        if indegree[v]  = 0
+           distance[V] <- 0
+           add v to Q
+ 
     while Q IS NOT EMPTY
         U <- Extract  from Q
-        for each unvisited neighbour V of U
-            // each edge one hour
-            alt <-  dist[u] + 1
-            if alt < distance[V]
-                distance[V] <- alt
+        for each neighbour V of U with indegree > 0
+            indegree[v] = indegree[v] - 1
+            if indegree[v] = 0
+                distance[V] <- distance[U] + 1 
                 previous[V] <- U
+                add v to Q
     return distance[]  last element 
-
 
 
 
