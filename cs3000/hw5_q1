@@ -2,6 +2,34 @@
 // You can assume the graph is represented by an adjacency list and your algorithm should
 run in O(n + |S|) time.
 
+
+
+
+ ///  v1: modified dijstra
+
+
+function Soccer(G)
+    for each vertex V in G
+        distance[V] <- INFINITY
+        previous[V] <- NULL
+    S to  Queue Q
+    distance[S] <- 0
+    while Q IS NOT EMPTY
+        U <- Extract  from Q
+        for each unvisited neighbour V of U
+            // each edge one hour
+            alt <-  dist[u] + 1
+            if alt < distance[V]
+                distance[V] <- alt
+                previous[V] <- U
+    return distance[]  last element 
+
+
+
+
+////////////////////////// V2
+
+
 // input AdjList representation of G
 Funncction Soccer(G(AdjList[] list))
     hour  <- 0  : total hour
