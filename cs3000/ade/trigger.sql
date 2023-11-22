@@ -39,7 +39,8 @@ BEGIN
   if  new.is_pregnant = 0 and old.is_pregnant = 1  then
         DELETE  
         from recommendation
-          where patient_id = new.patient_id     ;
+          where patient_id = new.patient_id   
+                and message = 'Take pre-natal vitamins.'  ;
  
      end if;
 
