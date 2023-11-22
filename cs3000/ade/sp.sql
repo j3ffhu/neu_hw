@@ -85,7 +85,7 @@ begin
             LIMIT 1;
     
           
-      IF ddi_medication != null then
+      IF ddi_medication is not null then
              set  message   = concat (medication_name_param,  ' interacts with ' ,  ddi_medication, ' currently prescribed to  ' , patient_name_param);
 			SIGNAL SQLSTATE '45000'
 				SET MESSAGE_TEXT = message ;
