@@ -44,19 +44,25 @@ Q4
 G = (V ,E,{we}, T, e, w')
 
     update e in we with new w'
-    sort E by we in  ascending order
+    min <- a number greater than all we
+    e' <- null -- hold new edge
 
     remove e(u, v) from T  
     -- two cases
     if u, or v is orphan (say u)   
-        loop E: all edges  starting smallest
-           if it connects T'
-           add edge to T'
-           return
+        for ee in all edges  
+           if it connects T' and smaller than min
+           update min with its weight
+           e' <- edeg
+         
     
     else 
       -- there are two disconected subtree T1, T2 
-       loop E: all edges starting smallest
-            if it connects  T1 T2
-            add edge and construct new T'
-            return
+        for ee in all edges 
+            if it connects  T1 T2 and  and smaller than min
+            update min with its weight
+             e' <- ee
+
+  add ee to construct new T'
+  
+  
