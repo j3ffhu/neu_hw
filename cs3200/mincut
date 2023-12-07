@@ -37,3 +37,26 @@ function findedge(G(V, E),  M, P  )
                  remove from W if weight becomes 0
     -- DONE, no more path from m to p 
     -- W should be empty 
+
+
+Q4
+
+G = (V ,E,{we}, T, e, w')
+
+    update e in we with new w'
+    sort E by we in  ascending order
+
+    remove e(u, v) from T  
+    -- two cases
+    if u, or v is orphan (say u)   
+        loop E: all edges  starting smallest
+           if it connects T'
+           add edge to T'
+           return
+    
+    else 
+      -- there are two disconected subtree T1, T2 
+       loop E: all edges starting smallest
+            if it connects  T1 T2
+            add edge and construct new T'
+            return
