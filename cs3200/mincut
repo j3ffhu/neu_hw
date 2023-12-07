@@ -1,0 +1,39 @@
+-- idea
+-- 1. finnd all paths between any minion and player
+-- 2. cacluate edge occurance (weight)
+-- 3. pick max weight edge, remove it and update weight 
+-- 4. repeat till all path is disconnected 
+
+-- V all vertex: toy  evil, minion and player
+-- E edge
+-- M set of minion
+-- P set of payer
+function findedge(G(V, E),  M, P  )
+   -- all path from minion to player 
+   allPaths <- {}
+   -- edge wight if it is part of path, 1 for each path
+   W <- {} 
+   for m in M 
+     for p in P 
+        simplePaths <- call DFS(m, p)
+        add simplePaths to allPaths 
+    
+    for path(e1, e2, ... en) in allPaths
+        for e(u, v) in  path   
+            if W contains e 
+                increase weight by 1
+            else    
+                add ( e, 1) to W 
+
+    while W is not empty
+        -- min cut logic 
+        select max weight edge e from W 
+        remove e from W 
+        remove e from G(V, E)
+        for each path (e1, e2.... en) in allPaths 
+           if it contains e 
+              for e(u, v) in  path   
+                 increase it weight by 1
+                 remove from W if weight becomes 0
+    -- DONE, no more path from m to p 
+    -- W should be empty 
