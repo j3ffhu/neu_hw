@@ -1,7 +1,7 @@
 -- idea
 -- 1. finnd all paths between any minion and player
 -- 2. cacluate edge occurance (weight)
--- 3. pick max weight edge, remove it and update weight 
+-- 3. pick max weight edge, remove it and update weight. it connects most "evil" paths
 -- 4. repeat till all path is disconnected 
 
 -- V all vertex: toy  evil, minion and player
