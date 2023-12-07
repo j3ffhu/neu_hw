@@ -63,6 +63,6 @@ G = (V ,E,{we}, T, e, w')
             update min with its weight
              e' <- ee
 
-  add ee to construct new T'
+  add e' to construct new T'
   
   
