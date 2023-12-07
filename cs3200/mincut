@@ -48,9 +48,9 @@ G = (V ,E,{we}, T, e, w')
     e' <- null -- hold new edge
 
     remove e(u, v) from T  
-    -- two cases
+    -- two cases: speed up loop
     if u, or v is orphan (say u)   
-        for ee in all edges  
+        for ee in all edges containing u
            if it connects T' and smaller than min
            update min with its weight
            e' <- edeg
