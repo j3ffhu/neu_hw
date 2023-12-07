@@ -33,7 +33,7 @@ function findedge(G(V, E),  M, P  )
         for each path (e1, e2.... en) in allPaths 
            if it contains e 
               for e(u, v) in  path   
-                 increase it weight by 1
+                 descrease it weight by 1
                  remove from W if weight becomes 0
     -- DONE, no more path from m to p 
     -- W should be empty 
