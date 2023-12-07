@@ -53,7 +53,7 @@ G = (V ,E,{we}, T, e, w')
         for ee in all edges containing u
            if it connects T' and smaller than min
            update min with its weight
-           e' <- edeg
+           e' <- ee
          
     
     else 
