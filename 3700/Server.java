@@ -8,14 +8,14 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Server {
 
 	public static void main(String[] args) {
- 
-		
+
 		final int portNumber = 8080;
 
 		try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
@@ -31,24 +31,24 @@ public class Server {
 					System.out.println("Client connected from " + clientSocket.getInetAddress());
 
 					ObjectMapper objectMapper = new ObjectMapper();
+					
+					objectMapper.setSerializationInclusion(Include.NON_NULL);
 
 					String inputLine;
 					while ((inputLine = reader.readLine()) != null) {
 						System.out.println("Received from client: " + inputLine);
 
 						// Use ObjectMapper to bind JSON to MyData object
- 
-						
-						
+
 						Message message = objectMapper.readValue(inputLine, Message.class);
 
 						// process n return
-						
-						
-						
 
-			  
- 
+						Message reply = new Message();
+						String jsonString = objectMapper.writeValueAsString(message);
+
+						writer.println(jsonString);
+
 					}
 
 					System.out.println("Client disconnected");
@@ -61,6 +61,4 @@ public class Server {
 		}
 
 	}
-	}
-
 }
