@@ -1,0 +1,18 @@
+git remote set-url --push origin 
+
+https://<username>:<AccessToken>@<domain>/<owner>/<reponame>.git
+
+git clone https://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@github.com/allexandrahu/cy2550.git
+
+Hi, my name is Alexandra HU, and my Github user name is allexandrahu.
+
+ git config --global user.name allexandrahu
+
+  git config --global user.email alexandra.hu@gmail.com
+
+  git remote add origin https://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@github.com/allexandrahu/cy2550.git
+
+  git push --set-upstream origin master  
+
+  // remote a unused branc
+  git push origin -d main
