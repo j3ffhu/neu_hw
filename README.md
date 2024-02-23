@@ -21,8 +21,8 @@ datasource db {
  
 server fold  
 
-npx prisma db push
-npx prisma db seed
+- npx prisma db push
+- npx prisma db seed
 
 
 D:\neu\FinishLine\src> yarn start
