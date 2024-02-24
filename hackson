@@ -1,3 +1,31 @@
+
+
+search api
+
+curl -X GET "https://zillow56.p.rapidapi.com/search?location=boston,+ma" -H "X-RapidAPI-Key: 7044be31eemsh278b3d382abfd55p1a1fbcjsn24044b859476" -H "X-RapidAPI-Host: zillow56.p.rapidapi.com"
+
+
+property api
+
+curl -X GET "https://zillow56.p.rapidapi.com/property?zpid=339616210" -H "X-RapidAPI-Key: 7044be31eemsh278b3d382abfd55p1a1fbcjsn24044b859476" -H "X-RapidAPI-Host: zillow56.p.rapidapi.com"
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const axios = require('axios');
 
 const options = {
