@@ -26,3 +26,14 @@ server fold
 
 
 D:\neu\FinishLine\src> yarn start
+
+
+
+// 2/28 - ref ticket
+
+
+https://github.com/Northeastern-Electric-Racing/FinishLine/tree/%232104-delete-manufac/src/frontend/src/pages/AdminToolsPage/BOMConfig
+
+add unit table n delete
+
+similar to Manufacture
