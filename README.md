@@ -19,7 +19,7 @@ datasource db {
  yarn install && yarn prisma:generate
 
  
-server fold  
+server folder  
 
 - npx prisma db push
 - npx prisma db seed
